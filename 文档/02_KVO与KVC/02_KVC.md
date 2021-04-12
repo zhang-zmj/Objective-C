@@ -14,7 +14,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;会触发KVO
 
 ####3、KVC设值原理
-<img style="" src="./img/02-KVC设置原理.png"/>
+<img style="" src="./img/02-KVC设值原理.png"/>
 
 ####4、KVC取值原理
 <img style="" src="./img/03-KVC取值原理.png"/>
