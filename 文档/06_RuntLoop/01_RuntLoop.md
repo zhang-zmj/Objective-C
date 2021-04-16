@@ -1,357 +1,243 @@
-#### 一、Runtime的介绍：
-* Objective-C是一门动态性比较强的编程语言，跟C、C++等语言有着很大的不同
-* Objective-C的动态性是由Runtime API来支撑的
-* Runtime API提供的接口基本都是C语言的，源码由C\C++\汇编语言编写
-
-#### 二、isa 详解：
-* 在arm64架构之前，isa就是一个普通的指针，存储着Class、Meta-Class对象的内存地址
-* 从arm64架构开始，对isa进行了优化，变成了一个共用体（union）结构，还使用位域来存储更多的信息
+### 一、RunLoop介绍：
+1、什么是RunLoop？
+```
+通过内部维护的事件循环来对事件/消息进行管理的一个对象
+```
+2、什么是事件循环，怎么做到的？
+```    
+  * 没有消息需要处理时，休眠以避免资源占用
+  * 有消息需要处理时，立刻被唤醒
+```
+3、RunLoop的作用：
+```
+//项目中的main.m文件
+int main(int argc, char * argv[]) {
+    @autoreleasepool {
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
+    }
+}
+//这个可以看做如下：
+int main(int argc, char * argv[]) {
+    @autoreleasepool {
+        int retVal = 0;
+        do {
+       //睡眠中等待消息
+        int message = sleep_and_wait();
+        //处理消息
+        retval = process_message(message);
+          } while (0 == retval)
+    }
+}
+1、保持程序的持续运行
+2、处理App中的各种事件（比如触摸事件、定时器事件等）
+3、节省CPU资源，提高程序性能：该做事时做事，该休息时休息
 
 ```
-union isa_t 
-{
-    Class cls;
-    uintptr_t bits;
-    struct {
-        uintptr_t nonpointer        : 1;
-        uintptr_t has_assoc         : 1;
-        uintptr_t has_cxx_dtor      : 1;
-        uintptr_t shiftcls          : 33; 
-        uintptr_t magic             : 6;
-        uintptr_t weakly_referenced : 1;
-        uintptr_t deallocating      : 1;
-        uintptr_t has_sidetable_rc  : 1;
-        uintptr_t extra_rc          : 19;
+
+4、RunLoop的应用：
+```
+1、定时器（Timer）、PerformSelector(线程间的通讯)
+2、GCD Async Main Queue
+3、事件响应、手势识别、界面刷新
+4、网络请求
+5、AutoreleasePool
+6、保住程序不退出，持续运行；
+7、节省 CPU 资源，提高程序性能；
+```
+
+
+
+### 二、Runloop对象：
+
+1、iOS中有2套API来访问和使用RunLoop
+  * Foundation：NSRunLoop
+ * Core Foundation：CFRunLoopRef
+
+2、NSRunLoop和CFRunLoopRef都代表着RunLoop对象
+ NSRunLoop是基于CFRunLoopRef的一层OC包装 [CFRunLoopRef](https://opensource.apple.com/tarballs/CF/)开原地址
+3、获取RunLoop对象
+ * OC(Foundation)获取RunLoop对象
+```
+[NSRunLoop currentRunLoop]; // 获得当前线程的RunLoop对象
+[NSRunLoop mainRunLoop]; // 获得主线程的RunLoop对象
+```
+* C(Core Foundation)获取RunLoop对象 
+```
+CFRunLoopGetCurrent(); // 获得当前线程的RunLoop对象
+CFRunLoopGetMain(); // 获得主线程的RunLoop对象
+```
+
+### 三、Runloop数据结构：
+
+1、Runloop的相关类
+```
+CFRunLoopRef - 获得当前RunLoop和主RunLoop
+CFRunLoopModeRef - RunLoop 运行模式，只能选择一种，
+                   在不同模式中做不同的操作，包含一下三种
+CFRunLoopSourceRef - 事件源，输入源
+CFRunLoopTimerRef - 定时器时间
+CFRunLoopObserverRef - 观察者
+```
+2、CFRunLoop的底层结构
+```
+typedef struct __CFRunLoop *CFRunLoopRef;
+struct __CFRunLoop {
+    pthread_t    pthread;  //--对应线程(RunLoop和线程的关系)
+    CFMutableSetRef  commonModes;    //NSMutableSet< NSString*>
+    CFMutableSetRef  commonModeItems;  // Observer  Timer   Source    
+    CFRunLoopModeRef currentMode;    //当前的model
+    CFMutableSetRef  modes;          //NSMutableSet< CFRunLoopMode*>
 };
 ```
-* 位域
+3、CFRunLoopMode的底层结构(modes)
 ```
-1、nonpointer
-    0，代表普通的指针，存储着Class、Meta-Class对象的内存地址
-    1，代表优化过，使用位域存储更多的信息
-```
-```
-2、has_assoc
-    是否有设置过关联对象，如果没有，释放时会更快
-```
-```
-3、has_cxx_dtor
-  是否有C++的析构函数（.cxx_destruct），如果没有，释放时会更快
-```
-```
-4、shiftcls
-  存储着Class、Meta-Class对象的内存地址信息
-```
-```
-5、magic
-  用于在调试时分辨对象是否未完成初始化
-```
-```
-6、weakly_referenced
-  是否有被弱引用指向过，如果没有，释放时会更快
-```
-```
-7、deallocating
-  对象是否正在释放
-```
-```
-8、extra_rc
-  里面存储的值是引用计数器减1
-```
-```
-9、has_sidetable_rc
-  1、引用计数器是否过大无法存储在isa中
-  2、如果为1，那么引用计数会存储在一个叫SideTable的类的属性中
+typedef struct __CFRunLoop *CFRunLoopModelRef;
+struct __CFRunLoopModel {
+
+    //名称 NSDefaultRunLoopModel
+    CFStringRef    _name;   
+
+    // 代表触摸事件、performSelector:onThread:
+    CFMutableSetRef _sources0;   
+
+    //基于Port的线程间通信、系统事件捕捉
+    CFMutableSetRef _sources1;  
+  
+     //NSTimer、performSelector:withObject:afterDelay:
+    CFMutableArrayRef _observers; 
+
+    //用于监听RunLoop的状态、UI刷新、AutoreleasePool
+    CFMutableArrayRef _timers;    //定时器
+
+};
 ```
 
-#### 三、objc_msgSend(消息发送)执行流程
-1、消息发送 (其实也就是isa与superclass寻找方法(对象方法或类方法)
-<img style="" src="./img/1、消息发送.png"/>
-```
-  1、如果是从 class_rw_t 中查找方法： 已经排序的二分查找，没有排序的遍历查找
-  2、receiver通过isa指针找到receiverClass
-  3、receiverClass通过superclass指针找到superClass
-```
-2、动态方法解析
-<img style="" src="./img/2、动态方法解析.png"/>
+![RunLoop.png](https://upload-images.jianshu.io/upload_images/2358583-cda3c03d91709d80.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-* 可以实现以下方法，来动态添加方法实现
-  + (BOOL)resolveInstanceMethod:(SEL)sel; (对象方法的动态添加)
+4、CFRunLoopModeRef代表RunLoop的运行模式(currentMode)
 ```
-+ (BOOL)resolveInstanceMethod:(SEL)sel
-{
-   if (sel == @selector(test)) {
-       // 获取其他方法
-       Method method = class_getInstanceMethod(self, @selector(other));
+1、一个RunLoop包含若干个Mode，每个Mode又包含若干个Source0/Source1/Timer/Observer
+2、RunLoop启动时只能选择其中一个Mode，作为currentMode
+3、如果需要切换Mode，只能退出当前Loop，再重新选择一个Mode进入
+4、不同组的Source0/Source1/Timer/Observer能分隔开来，互不影响
+5、如果Mode里没有任何Source0/Source1/Timer/Observer，RunLoop会立马退出
+```
 
-       // 动态添加test方法的实现
-       class_addMethod(self, sel,
-                       method_getImplementation(method),
-                       method_getTypeEncoding(method));
-       // 返回YES代表有动态添加方法
-       return YES;
+5、常见的3种Model
+```
+
+1、kCFRunLoopDefaultMode（NSDefaultRunLoopMode）：App的默认Mode，通常主线程是在这个Mode下运行
+2、UITrackingRunLoopMode：界面跟踪 Mode，用于 ScrollView 追踪触摸滑动，保证界面滑动时不受其他 Mode 影响
+3、NSRunLoopCommentMode： 
+    * CommentMode不是实际存在的一种Model
+    * 是同步Source/Timer/Observer到多个Model中的一种技术解决方案
+4、UIInitializationRunLoopMode：在刚启动 App 时第进入的第一个 Mode，启动完成后就不 再使用
+5、GSEventReceiveRunLoopMode：接受系统内部事件，通常用不到
+
+```
+
+6、CFRunLoopObserverRef
+```
+  
+    // 创建Observer
+    CFRunLoopObserverRef observer = CFRunLoopObserverCreateWithHandler(kCFAllocatorDefault, kCFRunLoopAllActivities, YES, 0, ^(CFRunLoopObserverRef observer, CFRunLoopActivity activity) {
+    switch (activity) {
+        case kCFRunLoopEntry:     //RunLoop 准备启动
+            NSLog(@"RunLoop进入");
+            break;
+        case kCFRunLoopBeforeTimers:// RunLoop 将要处理一些Timer相关事件
+            NSLog(@"RunLoop要处理Timers了");
+            break;
+        case kCFRunLoopBeforeSources: //RunLoop 将要处理一些 Source 事件
+            NSLog(@"RunLoop要处理Sources了");
+            break;
+        case kCFRunLoopBeforeWaiting: /RunLoop 将要进行休眠状态,即将由用户态切换到内核态
+            NSLog(@"RunLoop要休息了");
+            break;
+        case kCFRunLoopAfterWaiting: //RunLoop 被唤醒，即从内核态切换到用户态后
+            NSLog(@"RunLoop醒来了");
+            break;
+        case kCFRunLoopExit: // RunLoop 退出
+            NSLog(@"RunLoop退出了");
+            break;
+        default:
+            break;
     }
-  return [super resolveInstanceMethod:sel];
-}
-
--(void)other{
-
-   NSLog(@"%s",__func__);
-}
-```
-
-  + (BOOL)resolveClassMethod:(SEL)sel;  (类方法的动态添加)
-```
-+ (BOOL)resolveClassMethod:(SEL)sel
-{
-   if (sel == @selector(classTest)) {
-      // 第一个参数是object_getClass(self)
-      //class_addMethod(object_getClass(self), sel, (IMP)c_other, "v16@0:8");
-      // 获取其他方法
-      Method method = class_getClassMethod(self, @selector(classOther));
-      // 动态添加test方法的实现
-      class_addMethod(object_getClass(self), sel,
-               method_getImplementation(method),
-               method_getTypeEncoding(method));
-
-      // 返回YES代表有动态添加方法
-      return YES;
-    }
-  return [super resolveClassMethod:sel];
-}
-
-#pragma mark 类方法的转换（类方法classTest找不到就转换classOther方法）
-+(void)classOther{
-
-   NSLog(@"类方法classTest找不到就转换classOther方法");
-}
-```
-
-3、消息转发
-<img style="" src="./img/3、消息转发.png"/>
-
-* 3.1、当动态解析过都找不到一个方法时候就会走消息转发，首先会调用forwardingTargetForSelector(前面可能是 +(void)或者-(void)),如果不返回nil就会走 返回类的 Selector，如果返回nil就走 3.2
-```
--(id)forwardingTargetForSelector:(SEL)aSelector{
-
-     if (aSelector == @selector(test)) {
-
-          //return [[People alloc]init];
-          return nil;
-     }
-   return [super forwardingTargetForSelector:aSelector];
-}
-```
-
-* 3.2、当forwardingTargetForSelector返回nil或者不写这个方法时候，就会调用下面的方法
-```
-#pragma mark 2
-/**
-  方法签名：返回值类型、参数类型
-*/
-- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector
-{
-    if (aSelector == @selector(test)) {
-
-      // 获取其他方法(一)，会走 #pragma mark 3
-      /*
-         Method method = class_getInstanceMethod([People class], @selector(test));
-         return [NSMethodSignature signatureWithObjCTypes:method_getTypeEncoding(method)];
-       */
-
-      // 下面这一句和上面2句一个意思(二) 会走 #pragma mark 3
-      return [NSMethodSignature signatureWithObjCTypes:"v16@0:8"];
-
-      /**
-         如果返回nil 就不会再走会走 #pragma mark 3 方法了，会报错返回(doesNotRecognizeSelector)
-         -[NSObject(NSObject) doesNotRecognizeSelector:] + 132
-       */
-      // return nil;
-     }
-  return [super methodSignatureForSelector:aSelector];
-}
-
-#pragma mark 3.上面的方法不返回nil才会走
-/**
-   NSInvocation封装了一个方法调用，包括：方法调用者、方法名、方法参数
-   anInvocation.target 方法调用者
-   anInvocation.selector 方法名
-   [anInvocation getArgument:NULL atIndex:0]
-*/
-- (void)forwardInvocation:(NSInvocation *)anInvocation
-{
-   //    anInvocation.target = [[MJCat alloc] init];
-   //    [anInvocation invoke];
-
-   [anInvocation invokeWithTarget:[[People alloc] init]];
- }
-```
-
-* 当上面的 #pragma mark 2 返回nil的时候，就不会走#pragma mark 3，且报错 doesNotRecognizeSelector
-
-注意：
-生成NSMethodSignature
-<img style="" src="./img/4、生成NSMethodSignature.png"/>
-
-#### 四、Runtime的常见API
-1、类常用的API
-```
-1、 动态创建一个类（参数：父类，类名，额外的内存空间）
-  Class objc_allocateClassPair(Class superclass, const char *name, size_t extraBytes)
-
-2、注册一个类（要在类注册之前添加成员变量）
-  void objc_registerClassPair(Class cls) 
-
-3、销毁一个类
-  void objc_disposeClassPair(Class cls)
-
-4、获取isa指向的Class
-  Class object_getClass(id obj)
-
-5、设置isa指向的Class
-  Class object_setClass(id obj, Class cls)
-
-6、判断一个OC对象是否为Class
-  BOOL object_isClass(id obj)
-
-7、判断一个Class是否为元类
-  BOOL class_isMetaClass(Class cls)
-
-8、 获取父类
-  Class class_getSuperclass(Class cls)
-```
-
-2、成员变量的API
-```
-1、获取一个实例变量信息
-  Ivar class_getInstanceVariable(Class cls, const char *name)
-
-2、拷贝实例变量列表（最后需要调用free释放）
-  Ivar *class_copyIvarList(Class cls, unsigned int *outCount)
-
-3、设置和获取成员变量的值
-  void object_setIvar(id obj, Ivar ivar, id value)
-  id object_getIvar(id obj, Ivar ivar)
-
-4、动态添加成员变量（已经注册的类是不能动态添加成员变量的）
-  BOOL class_addIvar(Class cls, const char * name, size_t size, uint8_t alignment, const char * types)
-
-5、获取成员变量的相关信息
-  const char *ivar_getName(Ivar v)
-  const char *ivar_getTypeEncoding(Ivar v)
-```
-
-3、属性的API
-```
-1、获取一个属性
-  objc_property_t class_getProperty(Class cls, const char *name)
-
-2、拷贝属性列表（最后需要调用free释放）
-  objc_property_t *class_copyPropertyList(Class cls, unsigned int *outCount)
-
-3、动态添加属性
-  BOOL class_addProperty(Class cls, const char *name, const objc_property_attribute_t *attributes,
-                  unsigned int attributeCount)
-
-4、动态替换属性
-  void class_replaceProperty(Class cls, const char *name, const objc_property_attribute_t *attributes,
-  unsigned int attributeCount)
-
-5、获取属性的一些信息
-  const char *property_getName(objc_property_t property)
+    });
+    CFRunLoopAddObserver(CFRunLoopGetMain(), observer, kCFRunLoopCommonModes);
+    CFRelease(observer);
 
 ```
 
-4、方法的API
+### 四、Runloop实现机制：
+
+![截屏2021-02-23 下午10.04.53.png](https://upload-images.jianshu.io/upload_images/2358583-01b306c70f6f0775.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 ```
-1、获得一个实例方法、类方法
-  Method class_getInstanceMethod(Class cls, SEL name)
-  Method class_getClassMethod(Class cls, SEL name)
-
-2、方法实现相关操作
-  IMP class_getMethodImplementation(Class cls, SEL name) 
-  IMP method_setImplementation(Method m, IMP imp)
-  void method_exchangeImplementations(Method m1, Method m2) 
-
-3、拷贝方法列表（最后需要调用free释放）
-  Method *class_copyMethodList(Class cls, unsigned int *outCount)
-
-4、动态添加方法
-  BOOL class_addMethod(Class cls, SEL name, IMP imp, const char *types)
-
-5、动态替换方法
-  IMP class_replaceMethod(Class cls, SEL name, IMP imp, const char *types)
-
-6、获取方法的相关信息（带有copy的需要调用free去释放）
-  SEL method_getName(Method m)
-  IMP method_getImplementation(Method m)
-  const char *method_getTypeEncoding(Method m)
-  unsigned int method_getNumberOfArguments(Method m)
-  char *method_copyReturnType(Method m)
-  char *method_copyArgumentType(Method m, unsigned int index)
-
-7、选择器相关
-  const char *sel_getName(SEL sel)
-  SEL sel_registerName(const char *str)
-
-8、用block作为方法实现
-  IMP imp_implementationWithBlock(id block)
-  id imp_getBlock(IMP anImp)
-  BOOL imp_removeBlock(IMP anImp)
+ 1、通知观察者 RunLoop 即将启动。
+ 2、通知观察者即将要处理 Timer/source0 事件。
+ 3、处理 source0 事件。
+ 4、如果基于端口的源(Source1)准备好并处于等待状态，进入步骤 8。
+ 5、通知观察者线程即将进入休眠状态。 
+ 6、将线程置于休眠状态，由用户态切换到内核态，直到下面的任一事件发生才唤醒线程。
+ 7、通知观察者线程将被唤醒。 
+ 8、处理唤醒时收到的事件。
+ 9、通知观察者 RunLoop 结束
 ```
 
 
 
+### 五、Runloop在实际开发中的应用：
+1、解决NSTimer在滑动时停止工作的问题
+2、实现常驻线程
+3、监控应用卡顿 
+> 不难发现NSRunLoop调用方法主要就是在kCFRunLoopBeforeSources和kCFRunLoopBeforeWaiting之间,还有kCFRunLoopAfterWaiting之后,也就是如果我们发现这两个时间内耗时太长,那么就可以判定出此时主线程卡顿
+
+
+4、性能优化(UITableViewCell加载多个高清图片导致卡顿)
+
+> 首先创建一个单例，单例中定义了几个数组，用来存要在runloop循环中执行的任务，然后为主线程的runloop添加一个CFRunLoopObserver,当主线程在NSDefaultRunLoopMode中执行完任务，即将睡眠前，执行一个单例中保存的一次图片渲染任务
+
+
+#### 相关操作
+
+[iOS任意线程调用堆栈](https://blog.csdn.net/jingcheng345413/article/details/72819231)
+
+  [RunLoop卡顿检测地址1](https://blog.csdn.net/qq_22389025/article/details/80737130)
+
+  [RunLoop卡顿检测地址2](https://blog.csdn.net/weixin_33739627/article/details/85929667)
 
 
 
 
 
-
-
-
-
-
-
-
-#### 八、常见面试题
-
-1、说出下面的打印
-    题目内容: People 和Student两个类，Student继承于People，People继承于NSObject
-
+### 六、Runloop与线程：
+1、线程与RunLoop的关系
+ ```
+    * 线程是和RunLoop是一一对应的关系
+    * RunLoop保存在一个全局的Dictionary里，线程作为key，RunLoop作为value
+     * 线程刚创建时并没有RunLoop对象，RunLoop会在第一次获取它时创建
+     * RunLoop会在线程结束时销毁
+     * 主线程的RunLoop已经自动获取（创建），子线程默认没有开启RunLoop
+```
+2、怎样实现一个常驻线程?
+```
+  * 为当前线程开启一个RunLoop
+  * 向该RunLoop中添加一个Port/Source等维持RunLoop的事件
+  * 启动该RunLoop
+```
+3、怎样保证子线程数据回来更新UI的时候偶不打断用户的滑动操作？
+```
+  * 滑动的过程中UI处于UITrackingRunLoopMode下；
+  * 网络请求处于子线程下进行的，请求的数据抛给主线程更新UI，提交到主线程的DefaultMode模式下；
+  *  当滑动的时候处于TrackingMode下，提交到主线程DefaultMode下的任务不会被执行，当停止滑动的时候，会切换到DefaultMode，进而对提交的任务进行处理
 ```
 
-#import "Student.h"
-@implementation Student
-
--(void)printContent{
-
-    NSLog(@"[self class] = %@",[self class]);
-    NSLog(@"[self superclass] = %@",[self superclass]);
-
-    NSLog(@"[super class] = %@",[super class]);
-    NSLog(@"[super superclass] = %@",[super superclass]);
-
-}
-@end
-
-打印结果为：
-[self class] = Student
-[self superclass] = People
-[super class] = Student
-[super superclass] = People
-
+4、PerformSelector:afterDelay:这个方法在子线程中是否起作用？为什么？怎么 解决？
 ```
-解释：
-  * [self class] 是打印类，很明显是 Student;
-  * [self superclass] 是通过superclass查找父类，Student继承于People，所以打印时People
-  * [super class] 其实相比[self class]在本质上它们的 receiver 都是 self,所以在打印上都是 Student
-  * [super superclass] 其实相比[self superclass]在本质上它们的 receiver 都是 self,所以在打印上都是 People
-  *
-  *
-
-2、说出下面的打印
-
+  * 不起作用，其内部会创建一个Timer并添加到当前线程的RunLoop中；
+  * 子线程默认没有RunLoop，也就没有Timer
+  * 解决办法是可以使用GCD来实现：Dispatch_after
+```
 
 
 
