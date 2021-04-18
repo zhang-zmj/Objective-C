@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="cP3-gc-lEP">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="j1M-2e-Kzy">
+            <objects>
+                <navigationController id="cP3-gc-lEP" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gQn-ah-2ur">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="3e4-C2-8G3"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dfe-i2-9ef" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1626" y="299"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5xf-Eh-x5n"/>
+                        <viewControllerLayoutGuide type="bottom" id="M0G-q4-y9b"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0fE-wb-4Ak">
+                                <rect key="frame" x="113.5" y="74" width="148" height="40"/>
+                                <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="ATi-ug-f1B"/>
+                                </constraints>
+                                <state key="normal" title="消息机制"/>
+                                <connections>
+                                    <action selector="clickMessageBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OO0-0b-rVQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nvb-em-ko5">
+                                <rect key="frame" x="113.5" y="134" width="148" height="40"/>
+                                <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="修改私有变量"/>
+                                <connections>
+                                    <action selector="clickMessageBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xoy-fM-cUS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fjs-cH-Kge">
+                                <rect key="frame" x="113" y="194" width="148" height="40"/>
+                                <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="交换方法(黑魔法)"/>
+                                <connections>
+                                    <action selector="clickMessageBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WqY-7h-fEF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ftv-Jj-Wjl">
+                                <rect key="frame" x="113.5" y="254" width="148" height="40"/>
+                                <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="解档归档"/>
+                                <connections>
+                                    <action selector="clickMessageBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZDq-P6-bWE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ldB-e8-iN9">
+                                <rect key="frame" x="114" y="314" width="148" height="40"/>
+                                <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="字典转模型(KVC实现)"/>
+                                <connections>
+                                    <action selector="clickMessageBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FSI-Y8-RMj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RnF-9w-HLb">
+                                <rect key="frame" x="114" y="374" width="148" height="40"/>
+                                <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="界面停留统计"/>
+                                <connections>
+                                    <action selector="clickMessageBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vXf-IT-W9n"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E6X-6L-g3j">
+                                <rect key="frame" x="114" y="434" width="148" height="40"/>
+                                <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="UIButton事件统计"/>
+                                <connections>
+                                    <action selector="clickMessageBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ia6-oE-P8V"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WRY-LU-O2e">
+                                <rect key="frame" x="114" y="494" width="148" height="40"/>
+                                <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="获取私有属性和方法"/>
+                                <connections>
+                                    <action selector="clickMessageBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Psb-Ng-dgA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="8" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZHq-1d-Py3">
+                                <rect key="frame" x="113" y="554" width="148" height="40"/>
+                                <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="动态加载类和方法"/>
+                                <connections>
+                                    <action selector="clickMessageBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fMX-rQ-9hO"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ftv-Jj-Wjl" firstAttribute="centerX" secondItem="fjs-cH-Kge" secondAttribute="centerX" id="DSG-cz-uVz"/>
+                            <constraint firstItem="WRY-LU-O2e" firstAttribute="top" secondItem="E6X-6L-g3j" secondAttribute="bottom" constant="20" id="H4a-gH-usx"/>
+                            <constraint firstItem="Nvb-em-ko5" firstAttribute="height" secondItem="0fE-wb-4Ak" secondAttribute="height" id="IkP-Ky-FZu"/>
+                            <constraint firstItem="ldB-e8-iN9" firstAttribute="top" secondItem="ftv-Jj-Wjl" secondAttribute="bottom" constant="20" id="Kyy-s7-L85"/>
+                            <constraint firstItem="E6X-6L-g3j" firstAttribute="top" secondItem="RnF-9w-HLb" secondAttribute="bottom" constant="20" id="OrW-dU-RX7"/>
+                            <constraint firstItem="RnF-9w-HLb" firstAttribute="centerX" secondItem="ldB-e8-iN9" secondAttribute="centerX" id="PBC-Az-NiT"/>
+                            <constraint firstItem="ZHq-1d-Py3" firstAttribute="top" secondItem="WRY-LU-O2e" secondAttribute="bottom" constant="20" id="Q6F-4H-hFT"/>
+                            <constraint firstItem="RnF-9w-HLb" firstAttribute="top" secondItem="ldB-e8-iN9" secondAttribute="bottom" constant="20" id="QZ5-nM-FKN"/>
+                            <constraint firstItem="fjs-cH-Kge" firstAttribute="width" secondItem="Nvb-em-ko5" secondAttribute="width" id="Rvp-lA-OUy"/>
+                            <constraint firstItem="Nvb-em-ko5" firstAttribute="centerX" secondItem="0fE-wb-4Ak" secondAttribute="centerX" id="SJ6-Vb-rXc"/>
+                            <constraint firstItem="fjs-cH-Kge" firstAttribute="top" secondItem="Nvb-em-ko5" secondAttribute="bottom" constant="20" id="WOQ-TD-adb"/>
+                            <constraint firstItem="Nvb-em-ko5" firstAttribute="top" secondItem="0fE-wb-4Ak" secondAttribute="bottom" constant="20" id="X82-8l-Oqc"/>
+                            <constraint firstItem="E6X-6L-g3j" firstAttribute="height" secondItem="RnF-9w-HLb" secondAttribute="height" id="bIv-nQ-1y5"/>
+                            <constraint firstItem="fjs-cH-Kge" firstAttribute="centerX" secondItem="Nvb-em-ko5" secondAttribute="centerX" id="bst-s5-uba"/>
+                            <constraint firstItem="ldB-e8-iN9" firstAttribute="width" secondItem="ftv-Jj-Wjl" secondAttribute="width" id="cGI-MK-0Q3"/>
+                            <constraint firstItem="WRY-LU-O2e" firstAttribute="centerX" secondItem="E6X-6L-g3j" secondAttribute="centerX" id="cT3-BO-09o"/>
+                            <constraint firstItem="0fE-wb-4Ak" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="d98-a9-dd0"/>
+                            <constraint firstItem="RnF-9w-HLb" firstAttribute="height" secondItem="ldB-e8-iN9" secondAttribute="height" id="dMy-AE-ITC"/>
+                            <constraint firstItem="ftv-Jj-Wjl" firstAttribute="top" secondItem="fjs-cH-Kge" secondAttribute="bottom" constant="20" id="gtt-0d-NI9"/>
+                            <constraint firstItem="RnF-9w-HLb" firstAttribute="width" secondItem="ldB-e8-iN9" secondAttribute="width" id="iDU-CN-mV8"/>
+                            <constraint firstItem="WRY-LU-O2e" firstAttribute="width" secondItem="E6X-6L-g3j" secondAttribute="width" id="k7K-vQ-IZs"/>
+                            <constraint firstItem="WRY-LU-O2e" firstAttribute="height" secondItem="E6X-6L-g3j" secondAttribute="height" id="nNK-HS-bWN"/>
+                            <constraint firstItem="fjs-cH-Kge" firstAttribute="height" secondItem="Nvb-em-ko5" secondAttribute="height" id="nsX-qf-UDF"/>
+                            <constraint firstItem="0fE-wb-4Ak" firstAttribute="top" secondItem="5xf-Eh-x5n" secondAttribute="bottom" constant="10" id="pyi-pa-PCB"/>
+                            <constraint firstItem="ldB-e8-iN9" firstAttribute="height" secondItem="ftv-Jj-Wjl" secondAttribute="height" id="rvr-1M-9tr"/>
+                            <constraint firstItem="Nvb-em-ko5" firstAttribute="width" secondItem="0fE-wb-4Ak" secondAttribute="width" id="tai-zh-Ckh"/>
+                            <constraint firstItem="E6X-6L-g3j" firstAttribute="width" secondItem="RnF-9w-HLb" secondAttribute="width" id="u2R-uR-Nvr"/>
+                            <constraint firstItem="ldB-e8-iN9" firstAttribute="centerX" secondItem="ftv-Jj-Wjl" secondAttribute="centerX" id="uTt-LV-5M9"/>
+                            <constraint firstItem="ftv-Jj-Wjl" firstAttribute="width" secondItem="fjs-cH-Kge" secondAttribute="width" id="vP9-vr-IYr"/>
+                            <constraint firstItem="ZHq-1d-Py3" firstAttribute="centerX" secondItem="WRY-LU-O2e" secondAttribute="centerX" id="yRg-cp-QCK"/>
+                            <constraint firstItem="E6X-6L-g3j" firstAttribute="centerX" secondItem="RnF-9w-HLb" secondAttribute="centerX" id="zPd-D5-m15"/>
+                            <constraint firstItem="ftv-Jj-Wjl" firstAttribute="height" secondItem="fjs-cH-Kge" secondAttribute="height" id="zQF-S7-wDU"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="VEq-0K-cbZ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2306" y="299"/>
+        </scene>
+    </scenes>
+</document>

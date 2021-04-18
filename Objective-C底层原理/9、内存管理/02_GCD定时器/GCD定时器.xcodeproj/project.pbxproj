@@ -1,0 +1,350 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BC14D98423141E2D007E6AC2 /* ZMJTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = BC14D98323141E2D007E6AC2 /* ZMJTimer.m */; };
+		BCC5A65D2310F45F00E7E4A3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC5A65C2310F45F00E7E4A3 /* AppDelegate.m */; };
+		BCC5A6602310F45F00E7E4A3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC5A65F2310F45F00E7E4A3 /* ViewController.m */; };
+		BCC5A6632310F45F00E7E4A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCC5A6612310F45F00E7E4A3 /* Main.storyboard */; };
+		BCC5A6652310F46000E7E4A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCC5A6642310F46000E7E4A3 /* Assets.xcassets */; };
+		BCC5A6682310F46000E7E4A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCC5A6662310F46000E7E4A3 /* LaunchScreen.storyboard */; };
+		BCC5A66B2310F46000E7E4A3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC5A66A2310F46000E7E4A3 /* main.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		BC14D98223141E2D007E6AC2 /* ZMJTimer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMJTimer.h; sourceTree = "<group>"; };
+		BC14D98323141E2D007E6AC2 /* ZMJTimer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMJTimer.m; sourceTree = "<group>"; };
+		BCC5A6582310F45F00E7E4A3 /* GCD定时器.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GCD定时器.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BCC5A65B2310F45F00E7E4A3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		BCC5A65C2310F45F00E7E4A3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		BCC5A65E2310F45F00E7E4A3 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		BCC5A65F2310F45F00E7E4A3 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		BCC5A6622310F45F00E7E4A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BCC5A6642310F46000E7E4A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BCC5A6672310F46000E7E4A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BCC5A6692310F46000E7E4A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BCC5A66A2310F46000E7E4A3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BCC5A6552310F45F00E7E4A3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BCC5A64F2310F45F00E7E4A3 = {
+			isa = PBXGroup;
+			children = (
+				BCC5A65A2310F45F00E7E4A3 /* GCD定时器 */,
+				BCC5A6592310F45F00E7E4A3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BCC5A6592310F45F00E7E4A3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BCC5A6582310F45F00E7E4A3 /* GCD定时器.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BCC5A65A2310F45F00E7E4A3 /* GCD定时器 */ = {
+			isa = PBXGroup;
+			children = (
+				BCC5A65B2310F45F00E7E4A3 /* AppDelegate.h */,
+				BCC5A65C2310F45F00E7E4A3 /* AppDelegate.m */,
+				BCC5A65E2310F45F00E7E4A3 /* ViewController.h */,
+				BCC5A65F2310F45F00E7E4A3 /* ViewController.m */,
+				BCC5A6612310F45F00E7E4A3 /* Main.storyboard */,
+				BCC5A6642310F46000E7E4A3 /* Assets.xcassets */,
+				BCC5A6662310F46000E7E4A3 /* LaunchScreen.storyboard */,
+				BCC5A6692310F46000E7E4A3 /* Info.plist */,
+				BCC5A66A2310F46000E7E4A3 /* main.m */,
+				BC14D98223141E2D007E6AC2 /* ZMJTimer.h */,
+				BC14D98323141E2D007E6AC2 /* ZMJTimer.m */,
+			);
+			path = "GCD定时器";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BCC5A6572310F45F00E7E4A3 /* GCD定时器 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BCC5A66E2310F46000E7E4A3 /* Build configuration list for PBXNativeTarget "GCD定时器" */;
+			buildPhases = (
+				BCC5A6542310F45F00E7E4A3 /* Sources */,
+				BCC5A6552310F45F00E7E4A3 /* Frameworks */,
+				BCC5A6562310F45F00E7E4A3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "GCD定时器";
+			productName = "02-GCD定时器";
+			productReference = BCC5A6582310F45F00E7E4A3 /* GCD定时器.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BCC5A6502310F45F00E7E4A3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1030;
+				ORGANIZATIONNAME = zmj;
+				TargetAttributes = {
+					BCC5A6572310F45F00E7E4A3 = {
+						CreatedOnToolsVersion = 10.3;
+					};
+				};
+			};
+			buildConfigurationList = BCC5A6532310F45F00E7E4A3 /* Build configuration list for PBXProject "GCD定时器" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BCC5A64F2310F45F00E7E4A3;
+			productRefGroup = BCC5A6592310F45F00E7E4A3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BCC5A6572310F45F00E7E4A3 /* GCD定时器 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BCC5A6562310F45F00E7E4A3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCC5A6682310F46000E7E4A3 /* LaunchScreen.storyboard in Resources */,
+				BCC5A6652310F46000E7E4A3 /* Assets.xcassets in Resources */,
+				BCC5A6632310F45F00E7E4A3 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BCC5A6542310F45F00E7E4A3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCC5A6602310F45F00E7E4A3 /* ViewController.m in Sources */,
+				BCC5A66B2310F46000E7E4A3 /* main.m in Sources */,
+				BCC5A65D2310F45F00E7E4A3 /* AppDelegate.m in Sources */,
+				BC14D98423141E2D007E6AC2 /* ZMJTimer.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		BCC5A6612310F45F00E7E4A3 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BCC5A6622310F45F00E7E4A3 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BCC5A6662310F46000E7E4A3 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BCC5A6672310F46000E7E4A3 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BCC5A66C2310F46000E7E4A3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		BCC5A66D2310F46000E7E4A3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BCC5A66F2310F46000E7E4A3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G5R86N7UXS;
+				INFOPLIST_FILE = "GCD定时器/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "zmj.practice.com.-2-GCD---";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BCC5A6702310F46000E7E4A3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G5R86N7UXS;
+				INFOPLIST_FILE = "GCD定时器/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "zmj.practice.com.-2-GCD---";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BCC5A6532310F45F00E7E4A3 /* Build configuration list for PBXProject "GCD定时器" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BCC5A66C2310F46000E7E4A3 /* Debug */,
+				BCC5A66D2310F46000E7E4A3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BCC5A66E2310F46000E7E4A3 /* Build configuration list for PBXNativeTarget "GCD定时器" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BCC5A66F2310F46000E7E4A3 /* Debug */,
+				BCC5A6702310F46000E7E4A3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BCC5A6502310F45F00E7E4A3 /* Project object */;
+}

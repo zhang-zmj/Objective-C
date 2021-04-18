@@ -1,0 +1,356 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BCDB058B230BB0B800D72188 /* ZMJProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = BCDB058A230BB0B800D72188 /* ZMJProxy.m */; };
+		BCDB058E230BB58600D72188 /* ZMJProxy1.m in Sources */ = {isa = PBXBuildFile; fileRef = BCDB058D230BB58600D72188 /* ZMJProxy1.m */; };
+		BCF20D3A230AECEE001F0035 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF20D39230AECEE001F0035 /* AppDelegate.m */; };
+		BCF20D3D230AECEE001F0035 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF20D3C230AECEE001F0035 /* ViewController.m */; };
+		BCF20D40230AECEE001F0035 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCF20D3E230AECEE001F0035 /* Main.storyboard */; };
+		BCF20D42230AECEF001F0035 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCF20D41230AECEF001F0035 /* Assets.xcassets */; };
+		BCF20D45230AECEF001F0035 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCF20D43230AECEF001F0035 /* LaunchScreen.storyboard */; };
+		BCF20D48230AECEF001F0035 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF20D47230AECEF001F0035 /* main.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		BCDB0589230BB0B800D72188 /* ZMJProxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMJProxy.h; sourceTree = "<group>"; };
+		BCDB058A230BB0B800D72188 /* ZMJProxy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMJProxy.m; sourceTree = "<group>"; };
+		BCDB058C230BB58600D72188 /* ZMJProxy1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMJProxy1.h; sourceTree = "<group>"; };
+		BCDB058D230BB58600D72188 /* ZMJProxy1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMJProxy1.m; sourceTree = "<group>"; };
+		BCF20D35230AECEE001F0035 /* CADisplayLink与NSTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CADisplayLink与NSTimer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BCF20D38230AECEE001F0035 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		BCF20D39230AECEE001F0035 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		BCF20D3B230AECEE001F0035 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		BCF20D3C230AECEE001F0035 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		BCF20D3F230AECEE001F0035 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BCF20D41230AECEF001F0035 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BCF20D44230AECEF001F0035 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BCF20D46230AECEF001F0035 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BCF20D47230AECEF001F0035 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BCF20D32230AECEE001F0035 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BCF20D2C230AECEE001F0035 = {
+			isa = PBXGroup;
+			children = (
+				BCF20D37230AECEE001F0035 /* CADisplayLink与NSTimer */,
+				BCF20D36230AECEE001F0035 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BCF20D36230AECEE001F0035 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BCF20D35230AECEE001F0035 /* CADisplayLink与NSTimer.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BCF20D37230AECEE001F0035 /* CADisplayLink与NSTimer */ = {
+			isa = PBXGroup;
+			children = (
+				BCF20D38230AECEE001F0035 /* AppDelegate.h */,
+				BCF20D39230AECEE001F0035 /* AppDelegate.m */,
+				BCF20D3B230AECEE001F0035 /* ViewController.h */,
+				BCF20D3C230AECEE001F0035 /* ViewController.m */,
+				BCF20D3E230AECEE001F0035 /* Main.storyboard */,
+				BCF20D41230AECEF001F0035 /* Assets.xcassets */,
+				BCF20D43230AECEF001F0035 /* LaunchScreen.storyboard */,
+				BCF20D46230AECEF001F0035 /* Info.plist */,
+				BCF20D47230AECEF001F0035 /* main.m */,
+				BCDB0589230BB0B800D72188 /* ZMJProxy.h */,
+				BCDB058A230BB0B800D72188 /* ZMJProxy.m */,
+				BCDB058C230BB58600D72188 /* ZMJProxy1.h */,
+				BCDB058D230BB58600D72188 /* ZMJProxy1.m */,
+			);
+			path = "CADisplayLink与NSTimer";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BCF20D34230AECEE001F0035 /* CADisplayLink与NSTimer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BCF20D4B230AECEF001F0035 /* Build configuration list for PBXNativeTarget "CADisplayLink与NSTimer" */;
+			buildPhases = (
+				BCF20D31230AECEE001F0035 /* Sources */,
+				BCF20D32230AECEE001F0035 /* Frameworks */,
+				BCF20D33230AECEE001F0035 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "CADisplayLink与NSTimer";
+			productName = "01-定时器";
+			productReference = BCF20D35230AECEE001F0035 /* CADisplayLink与NSTimer.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BCF20D2D230AECEE001F0035 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1030;
+				ORGANIZATIONNAME = zmj;
+				TargetAttributes = {
+					BCF20D34230AECEE001F0035 = {
+						CreatedOnToolsVersion = 10.3;
+					};
+				};
+			};
+			buildConfigurationList = BCF20D30230AECEE001F0035 /* Build configuration list for PBXProject "CADisplayLink与NSTimer" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BCF20D2C230AECEE001F0035;
+			productRefGroup = BCF20D36230AECEE001F0035 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BCF20D34230AECEE001F0035 /* CADisplayLink与NSTimer */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BCF20D33230AECEE001F0035 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCF20D45230AECEF001F0035 /* LaunchScreen.storyboard in Resources */,
+				BCF20D42230AECEF001F0035 /* Assets.xcassets in Resources */,
+				BCF20D40230AECEE001F0035 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BCF20D31230AECEE001F0035 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCDB058B230BB0B800D72188 /* ZMJProxy.m in Sources */,
+				BCF20D3D230AECEE001F0035 /* ViewController.m in Sources */,
+				BCDB058E230BB58600D72188 /* ZMJProxy1.m in Sources */,
+				BCF20D48230AECEF001F0035 /* main.m in Sources */,
+				BCF20D3A230AECEE001F0035 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		BCF20D3E230AECEE001F0035 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BCF20D3F230AECEE001F0035 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BCF20D43230AECEF001F0035 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BCF20D44230AECEF001F0035 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BCF20D49230AECEF001F0035 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		BCF20D4A230AECEF001F0035 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BCF20D4C230AECEF001F0035 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7655ESK844;
+				INFOPLIST_FILE = "$(SRCROOT)/CADisplayLink与NSTimer/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = zmj.practice.com;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BCF20D4D230AECEF001F0035 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7655ESK844;
+				INFOPLIST_FILE = "$(SRCROOT)/CADisplayLink与NSTimer/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = zmj.practice.com;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BCF20D30230AECEE001F0035 /* Build configuration list for PBXProject "CADisplayLink与NSTimer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BCF20D49230AECEF001F0035 /* Debug */,
+				BCF20D4A230AECEF001F0035 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BCF20D4B230AECEF001F0035 /* Build configuration list for PBXNativeTarget "CADisplayLink与NSTimer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BCF20D4C230AECEF001F0035 /* Debug */,
+				BCF20D4D230AECEF001F0035 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BCF20D2D230AECEE001F0035 /* Project object */;
+}

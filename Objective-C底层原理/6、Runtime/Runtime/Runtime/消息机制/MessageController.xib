@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MessageController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hdQ-bz-TGp">
+                    <rect key="frame" x="128" y="114" width="120" height="40"/>
+                    <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="Bb6-ns-cXH"/>
+                        <constraint firstAttribute="width" constant="120" id="CMQ-Mb-NQF"/>
+                    </constraints>
+                    <state key="normal" title="消息机制原理"/>
+                    <connections>
+                        <action selector="clickPrinciple:" destination="-1" eventType="touchUpInside" id="cSG-hY-kUn"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oDv-kk-jFE">
+                    <rect key="frame" x="112" y="184" width="153" height="40"/>
+                    <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="消息机制动态添加方法"/>
+                    <connections>
+                        <action selector="clickPrinciple:" destination="-1" eventType="touchUpInside" id="l9A-xM-bgi"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vSy-cX-rl9">
+                    <rect key="frame" x="112" y="254" width="153" height="40"/>
+                    <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="消息机制重定向"/>
+                    <connections>
+                        <action selector="clickPrinciple:" destination="-1" eventType="touchUpInside" id="vH1-3G-XAw"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jhg-xA-Uhk">
+                    <rect key="frame" x="111" y="254" width="153" height="40"/>
+                    <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="153" id="OXg-f1-JKR"/>
+                    </constraints>
+                    <state key="normal" title="消息机制重定向"/>
+                    <connections>
+                        <action selector="clickPrinciple:" destination="-1" eventType="touchUpInside" id="3KD-jy-IhG"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="And-YW-lz3">
+                    <rect key="frame" x="111" y="324" width="153" height="40"/>
+                    <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="消息机制添加属性"/>
+                    <connections>
+                        <action selector="clickPrinciple:" destination="-1" eventType="touchUpInside" id="ctu-d6-Bta"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="oDv-kk-jFE" firstAttribute="height" secondItem="hdQ-bz-TGp" secondAttribute="height" id="0xE-nb-6q1"/>
+                <constraint firstItem="vSy-cX-rl9" firstAttribute="width" secondItem="oDv-kk-jFE" secondAttribute="width" id="2v4-B6-UqV"/>
+                <constraint firstItem="vSy-cX-rl9" firstAttribute="height" secondItem="oDv-kk-jFE" secondAttribute="height" id="4Io-XV-Ooc"/>
+                <constraint firstItem="hdQ-bz-TGp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="114" id="6Te-C4-zQg"/>
+                <constraint firstItem="And-YW-lz3" firstAttribute="height" secondItem="jhg-xA-Uhk" secondAttribute="height" id="ETQ-JH-ACs"/>
+                <constraint firstItem="And-YW-lz3" firstAttribute="top" secondItem="jhg-xA-Uhk" secondAttribute="bottom" constant="30" id="F0Y-ov-ceR"/>
+                <constraint firstItem="jhg-xA-Uhk" firstAttribute="centerX" secondItem="hdQ-bz-TGp" secondAttribute="centerX" id="GMR-jv-BZe"/>
+                <constraint firstItem="And-YW-lz3" firstAttribute="centerX" secondItem="jhg-xA-Uhk" secondAttribute="centerX" id="GVv-xX-E2U"/>
+                <constraint firstItem="jhg-xA-Uhk" firstAttribute="top" secondItem="vSy-cX-rl9" secondAttribute="top" id="MTb-am-Ttb"/>
+                <constraint firstItem="vSy-cX-rl9" firstAttribute="top" secondItem="oDv-kk-jFE" secondAttribute="bottom" constant="30" id="Oav-4K-OAT"/>
+                <constraint firstItem="oDv-kk-jFE" firstAttribute="top" secondItem="hdQ-bz-TGp" secondAttribute="bottom" constant="30" id="S9b-pP-J2Z"/>
+                <constraint firstItem="vSy-cX-rl9" firstAttribute="centerX" secondItem="oDv-kk-jFE" secondAttribute="centerX" id="ZTg-TS-1Gu"/>
+                <constraint firstItem="jhg-xA-Uhk" firstAttribute="firstBaseline" secondItem="vSy-cX-rl9" secondAttribute="baseline" id="bag-Pd-p5A"/>
+                <constraint firstItem="And-YW-lz3" firstAttribute="width" secondItem="jhg-xA-Uhk" secondAttribute="width" id="mcR-xN-Ws7"/>
+                <constraint firstItem="oDv-kk-jFE" firstAttribute="centerX" secondItem="hdQ-bz-TGp" secondAttribute="centerX" id="obN-8k-Gne"/>
+                <constraint firstItem="hdQ-bz-TGp" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="t3j-tH-3my"/>
+            </constraints>
+            <point key="canvasLocation" x="-414" y="-67"/>
+        </view>
+    </objects>
+</document>
